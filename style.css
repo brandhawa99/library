@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+}
+.header {
+  width: 100vw;
+  height: 5rem;
+  background-color: dodgerblue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-family: "Mukta", sans-serif;
+}
+.subheader {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  background-color: greenyellow;
+}
+.addBook {
+  margin-left: 2rem;
+}
+.library {
+  width: 90vw;
+  background-color: wheat;
+  display: flex;
+  justify-content: flex-start;
+}
+.book-container {
+  box-sizing: border-box;
+  width: 10rem;
+  height: 10rem;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+}
+.book-title {
+  text-align: center;
+  overflow-wrap: break-word;
+}
+.book-author {
+}
