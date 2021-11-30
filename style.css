@@ -6,16 +6,17 @@ body {
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(51, 51, 51);
 }
 .header {
   width: 100vw;
   height: 5rem;
-  background-color: dodgerblue;
+  background-color: rgb(51, 51, 51);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 3rem;
   font-family: "Mukta", sans-serif;
 }
 .subheader {
@@ -25,19 +26,28 @@ body {
   justify-content: flex-start;
   gap: 20px;
   width: 100vw;
-  background-color: greenyellow;
+  background-color: rgb(51, 51, 51);
 }
 .addBook {
+  margin-left: 20px;
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  font-weight: 700;
 }
 .form {
   margin-left: 20px;
 }
 .library {
   width: 90vw;
-  background-color: wheat;
+  /* background-color: wheat; */
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  background-color: rgb(51, 51, 51);
 }
 .book-container {
   box-sizing: border-box;
@@ -45,18 +55,21 @@ body {
   height: 15rem;
   border-style: solid;
   border-width: 2px;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   margin: 10px;
+  color: white;
 }
 .book-title {
   text-align: center;
   overflow-wrap: break-word;
+  font-size: 20px;
+  font-weight: 700;
 }
 .book-author {
   text-align: center;
   overflow-wrap: break-word;
+  font-size: 20px;
 }

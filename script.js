@@ -31,9 +31,10 @@ function addBookToLibrary(){
     }
     addBookToElement(title.value,author.value)
     
+    myLibrary.push(new Book(title.value,author.value))
     title.value = ""; 
     author.value = ""; 
-    myLibrary.push(new Book(title,author))
+    console.log(myLibrary);
 }
 
 function addBookToElement(title , author){
