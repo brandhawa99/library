@@ -10,7 +10,17 @@
   </head>
   <body>
     <div class="header">Bawa's Book Bunch</div>
-    <div class="subheader"><button class="addBook">Create</button></div>
+    <div class="subheader">
+        <div class="form">
+            <label for="">Title:</label>
+            <input type="text" name="title" id="get-title" required>
+            <label for="">Author:</label>
+            <input type="text" name="author" id="get-author"required>
+            <label for="">Finished</label>
+            <input type="checkbox" name="finished" id="finished">
+        </div>
+        <button class="addBook">Create</button>
+    </div>
     <div class="library">
       <div class="book-container">
         <div class="book-title">Harry Potter and the philosopher stone</div>
