@@ -5,27 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
-    <div class="header">Bawa's Book Club</div>
-    <div class="subheader">
-        <!-- <div class="form">
-            <label for="">Title:</label>
-            <input type="text" name="title" id="get-title" required>
-            <label for="">Author:</label>
-            <input type="text" name="author" id="get-author"required>
-            <label for="">Finished</label>
-            <input type="checkbox" name="finished" id="finished">
-        </div> -->
-        <button class="addBook">Add Book</button>
+  <body class="bg-blue-200">
+    <!-- HEADER  -->
+    <div
+      class="
+        w-full
+        h-24
+        flex
+        justify-between
+        items-center
+        bg-blue-400
+        border-b-4 border-black border-opacity-5
+      "
+      class="header"
+    >
+      <div class="text-4xl mx-4 font-mono">Your Library</div>
+      <button
+        class="
+          bg-blue-700
+          hover:bg-blue-600
+          text-white
+          font-bold
+          rounded
+          mx-5
+          px-7
+          py-3
+          ring-4 ring-blue-200
+          shadow-2xl
+        "
+        id="open-modal"
+      >
+        Add Book
+      </button>
     </div>
+    <div class="modal active" id="modal">
+      <div class="modal-header">
+        <div class="modal-title">Add Your Book</div>
+        <div class="close-button">&times;</div>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, animi
+        quisquam. Dignissimos pariatur ullam distinctio a necessitatibus
+        suscipit ipsa ab!
+      </div>
+    </div>
+    <div class="active" id="overlay"></div>
+    <!-- BOOKS CONTAINER -->
     <div class="library">
-      <div class="book-container">
-        <div class="book-title">Harry Potter and the philosopher stone</div>
-          <div class="book-author">Jk Rowling</div>
+      <!-- BOOKS -->
+      <div
+        class="
+          my-8
+          mx-8
+          w-64
+          h-72
+          box-border
+          shadow-xl
+          bg-white
+          rounded-md
+          px-6
+          py-8
+          ring-red-500 ring-8
+        "
+        id="card"
+      >
+        <div class="text-xl font-semibold" class="title">
+          Harry Potter and the philosophers stone
         </div>
+        <div class="text-lg font-md my-5" class="author">Jk Rowling</div>
+        <button class="my-6 bg-red-300 rounded px-2" class="finished">
+          Not Finished
+        </button>
       </div>
     </div>
   </body>

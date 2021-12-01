@@ -17,6 +17,7 @@ Book.prototype.getAuthor = function(){
 }
 const button  = document.querySelector('.addBook');
 const library = document.querySelector('.library');
+const close_button = document.querySelector('.closing-button')
 
 
 
@@ -59,5 +60,13 @@ function addBookToElement(title , author){
 
 
 }
+const form = document.querySelector('.form');
 
-button.addEventListener('click',addBookToLibrary)
+button.addEventListener('click',() =>{
+    // form.setAttribute('style','visibilty:visible;')
+})
+
+//Close Popup Button 
+close.addEventListener('click',() =>{
+    // form.setAttribute('style','visibility: hidden;')
+})
