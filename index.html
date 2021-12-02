@@ -41,22 +41,71 @@
           shadow-2xl
         "
         id="open-modal"
+        data-modal-target="#modal"
       >
         Add Book
       </button>
     </div>
-    <div class="modal active" id="modal">
+    <!-- MODAL -->
+    <div class="modal" id="modal">
       <div class="modal-header">
         <div class="modal-title">Add Your Book</div>
-        <div class="close-button">&times;</div>
+        <div data-close-button class="close-button">&times;</div>
       </div>
       <div class="modal-body">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, animi
-        quisquam. Dignissimos pariatur ullam distinctio a necessitatibus
-        suscipit ipsa ab!
+        <div class="title-data-container">
+          <label for="title-data" class="text-lg">Title</label>
+          <input
+            type="text"
+            name=""
+            id=""
+            class="
+              px-2
+              ring-1 ring-blue-500
+              h-8
+              mx-3
+              rounded
+              focus:ring-4 focus:ring-blue-500
+            "
+            required
+          />
+        </div>
+        <br />
+        <div class="author-data-container">
+          <label for="author-data" class="text-lg">Author</label>
+          <input
+            class="
+              px-2
+              h-8
+              mx-3
+              ring-1 ring-blue-500
+              rounded
+              focus:ring-4 focus:ring-blue-500
+            "
+            type="text"
+            name=""
+            id=""
+            required
+          />
+        </div>
+        <br />
+        <label for="read-data" class="text-lg">Read</label>
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          class="form-checkbox mx-2 w-6 h-4"
+        />
+        <br />
+        <button
+          type="submit"
+          class="my-4 text-2xl bg-gray-300 px-2 hover:bg-gray-400 rounded"
+        >
+          Submit
+        </button>
       </div>
     </div>
-    <div class="active" id="overlay"></div>
+    <div class="overlay" id="overlay"></div>
     <!-- BOOKS CONTAINER -->
     <div class="library">
       <!-- BOOKS -->
