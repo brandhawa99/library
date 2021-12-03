@@ -60,6 +60,7 @@
             name=""
             id=""
             class="
+              title-data
               px-2
               ring-1 ring-blue-500
               h-8
@@ -75,6 +76,7 @@
           <label for="author-data" class="text-lg">Author</label>
           <input
             class="
+              author-data
               px-2
               h-8
               mx-3
@@ -94,12 +96,20 @@
           type="checkbox"
           name=""
           id=""
-          class="form-checkbox mx-2 w-6 h-4"
+          class="read-data form-checkbox mx-2 w-6 h-4"
         />
         <br />
         <button
           type="submit"
-          class="my-4 text-2xl bg-gray-300 px-2 hover:bg-gray-400 rounded"
+          class="
+            submit
+            my-4
+            text-2xl
+            bg-gray-300
+            px-2
+            hover:bg-gray-400
+            rounded
+          "
         >
           Submit
         </button>
@@ -109,7 +119,7 @@
     <!-- BOOKS CONTAINER -->
     <div class="library">
       <!-- BOOKS -->
-      <div
+      <!-- <div
         class="
           my-8
           mx-8
@@ -125,14 +135,14 @@
         "
         id="card"
       >
-        <div class="text-xl font-semibold" class="title">
+        <div class="text-xl font-semibold" id="title">
           Harry Potter and the philosophers stone
         </div>
-        <div class="text-lg font-md my-5" class="author">Jk Rowling</div>
+        <div class="text-lg font-md my-5" id="author">Jk Rowling</div>
         <button class="my-6 bg-red-300 rounded px-2" class="finished">
           Not Finished
         </button>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
