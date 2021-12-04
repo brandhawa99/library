@@ -76,3 +76,12 @@ body {
   pointer-events: all;
   opacity: 1;
 }
+.delete {
+  color: red;
+  display: none;
+}
+#title:hover .delete {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}

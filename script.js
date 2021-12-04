@@ -1,6 +1,7 @@
 // OPEN AND CLOSE MODAL 
 let ELEMENT_ID = 1000; 
 
+const LIBRARY = document.querySelector('.library');
 const openModalButton = document.getElementById('open-modal')
 const closeModalButton = document.querySelector('.close-button')
 const overlay = document.querySelector('.overlay');
@@ -53,7 +54,7 @@ Book.prototype.getRead = function(){
     return this.read;
 }
 Book.prototype.setId = function(){
-    this.id = ELEMENT_ID;
+    this.id = "a"+ELEMENT_ID;
     ELEMENT_ID++;
 }
 Book.prototype.getId = function(){
@@ -62,7 +63,6 @@ Book.prototype.getId = function(){
 
 //GET DATA FROM MODAL 
 const submit_button = document.querySelector('.submit');
-
 submit_button.addEventListener('click',()=>{
     const library = document.querySelector('.library');
 
@@ -70,20 +70,25 @@ submit_button.addEventListener('click',()=>{
     title = getTitle(); 
     author = getAuthor(); 
     read = getRead(); 
-    
-    if(title==null || author == null){
-        console.log('No data Entered')
+
+    if(title.trim() == "" || author.trim() == ""){
+        closeModal(modal);
+        return 
     }
 
     let book = mkObj(title,author,read);
 
-    let element = mkElements(title,author,read,book.getId);
+    let element = mkElements(book);
     library.appendChild(element);
     closeModal(modal);
     resetVales();
     // CLSOE THE MODAL AFTER HITTING SUBMIT
 
 })
+
+//Update Read status
+// const finished_buttons;
+
 
 function getTitle(){
     let title = document.querySelector('.title-data').value
@@ -118,26 +123,68 @@ function mkObj(title,author,read){
 
 //Return the container with all the elements needed inside of it
 // to be appened to library 
-function mkElements(title,author,read,id){
+function mkElements(book){
     //CREATE ELEMENTS 
     const container = document.createElement('div');
     const title_element = document.createElement('div');
     const author_element = document.createElement('div');
     const finished_button = document.createElement('button');
+    const delete_button = document.createElement('button'); 
+
+    
+    
+    //add event listener
+    finished_button.addEventListener('click',()=>{
+        //TODO :: MAKE THE ACTUALLY VARIABLE CHANGE FROMT HE CLICK IN THE LIBRARY 
+        if(book.read==false){
+            container.classList.remove('ring-red-500')
+            container.classList.add('ring-green-500')
+            finished_button.classList.remove('bg-red-300')
+            finished_button.classList.add('bg-green-300');
+            finished_button.innerHTML = "Finished"
+            book.updateRead();
+            return
+        }
+        container.classList.remove('ring-green-500')
+        container.classList.add('ring-red-500')
+        finished_button.classList.remove('bg-green-300')
+        finished_button.classList.add('bg-red-300');
+        finished_button.innerHTML = "Not Finished"
+        book.updateRead()
+    })
+    
+    
     //add classes
+    delete_button.classList="w-4 items-center text-red-600 text-md hover:bg-red-100"
     title_element.classList = "text-xl font-semibold"
     author_element.classList ="text-lg font-md my-5"
+    finished_button.classList= "my-6 rounded px-2"
+    container.classList="overflow-y-scroll flex flex-col my-8 mx-4 w-64 h-72 box-border shadow-xl bg-white rounded-md  px-6 py-8 ring-8"
+    
+    //
     //Set ID OF CONTAINER
-    container.setAttribute('data-id',id);
+    container.setAttribute('id',book.getId());
+    finished_button.setAttribute('data-read-target',book.getId())
+    delete_button.setAttribute('data-delete-target',book.getId())
     // add inner HTML
-    title_element.innerHTML = title; 
-    author_element.innerHTML = author;
-
+    delete_button.innerHTML = "&times"
+    title_element.innerHTML = book.getTitle(); 
+    author_element.innerHTML = book.getAuthor();
+        // ADD EVENT LISTENER TO DELETE BUTTON 
+        delete_button.addEventListener('click',()=>{
+            const card_id = delete_button.dataset.deleteTarget
+            myLibrary = myLibrary.filter(book => book.getId !== card_id)
+            card = document.getElementById(delete_button.dataset.deleteTarget);
+            LIBRARY.removeChild(card);
+            console.log(myLibrary)
+        })
+    
     //IF READ IS FALSE MAKE ELEMENTS RED 
-    if(read ==false){
-        container.classList ="overflow-y-scroll my-8 mx-8 w-64 h-72 box-border shadow-xl bg-white rounded-md  px-6 py-8 ring-red-500 ring-8"
-        finished_button.classList ="my-6 bg-red-300 rounded px-2"
+    if(book.read ==false){
+        container.classList.add("ring-red-500")
+        finished_button.classList.add("bg-red-300")
         finished_button.innerHTML = "Not Finished"
+        container.appendChild(delete_button);
         container.appendChild(title_element)
         container.appendChild(author_element)
         container.appendChild(finished_button)
@@ -145,15 +192,18 @@ function mkElements(title,author,read,id){
         return container;
     }
     //MAKE ELEMENTS GREEN
-    container.classList ="overflow-y-scroll my-8 mx-8 w-64 h-72 box-border shadow-xl bg-white rounded-md  px-6 py-8 ring-green-500 ring-8"
-    finished_button.classList ="my-6 bg-green-300 rounded px-2"
+    container.classList.add("ring-green-500")
+    finished_button.classList.add("bg-green-300")
     finished_button.innerHTML = "Finished"
+    
+    
+    //add chidren to whatever
+    container.appendChild(delete_button);
     container.appendChild(title_element)
     container.appendChild(author_element)
     container.appendChild(finished_button)
+
+
     // return container to be appeneded to the library 
     return container;
 }
-
-
-
