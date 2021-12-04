@@ -173,9 +173,17 @@ function mkElements(book){
         // ADD EVENT LISTENER TO DELETE BUTTON 
         delete_button.addEventListener('click',()=>{
             const card_id = delete_button.dataset.deleteTarget
-            myLibrary = myLibrary.filter(book => book.getId !== card_id)
             card = document.getElementById(delete_button.dataset.deleteTarget);
             LIBRARY.removeChild(card);
+            console.log(card_id);
+            myLibrary = myLibrary.filter(function(id){
+                if(id.getId() == card_id){
+                    return false
+                }
+                return true
+            })
+
+
             console.log(myLibrary)
         })
     
